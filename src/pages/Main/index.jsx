@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+
 import Countrys from "../../api/country";
 
 import { Form } from "./styles";
@@ -13,6 +15,17 @@ export default class Main extends Component {
     countries: []
   };
 
+  notify() {
+    toast.error("🦄 Wow so easy!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true
+    });
+  }
+
   getCountry() {
     Countrys()
       .then(res => {
@@ -22,6 +35,7 @@ export default class Main extends Component {
       })
       .catch(err => {
         console.log("Error: " + err);
+        this.notify();
       });
   }
 
@@ -31,17 +45,33 @@ export default class Main extends Component {
 
   render() {
     return (
-      <Form>
-        <DropDown label="Select your country">
-          {this.state.countries.map(c => (
-            <option key={c.code} value="grapefruit">
-              {c.name}
-            </option>
-          ))}
-        </DropDown>
-        <input type="text" placeholder="População Atual" />
-        <Button type="submit" label="Inserir" onClick={() => {}}></Button>
-      </Form>
+      <>
+        <Form>
+          <DropDown label="Select your country">
+            {this.state.countries.map(c => (
+              <option key={c.code} value="grapefruit">
+                {c.name}
+              </option>
+            ))}
+          </DropDown>
+          <input type="text" placeholder="População Atual" />
+          <Button type="submit" label="Inserir" onClick={this.notify}></Button>
+        </Form>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable
+          pauseOnHover
+        />
+        {/* Same as */}
+        <ToastContainer />
+      </>
     );
   }
 }
