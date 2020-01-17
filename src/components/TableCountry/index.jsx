@@ -4,37 +4,43 @@ import styled from "styled-components";
 import { style } from "../../configs/theme";
 
 const UlStyled = styled.ul`
-
   display: grid;
   grid-gap: 10px;
   margin-top: 30px;
   list-style: none;
   font-family: ${style("tableFontFamily")};
-  font-size:14px;
+  font-size: 14px;
   box-shadow: ${style("shadow.small")};
   position: relative;
-  margin-left: ${style("marginHalf")}; 
+  margin-left: ${style("marginHalf")};
   padding: ${style("padding")};
-  background: ${props => props.theme.color[props.color]};
-  cursor: pointer;
+  background: #eaeef2;
+  width: ${style("width")};
 
   li {
+    display: flex;
+    justify-content: space-between;
     padding: 15px;
     border-radius: 4px;
-    background:#dae1e8;
-    opacity: ${props => (props.past ? 0.6 : 1)};
-   
+    background: #dee4ea;
+
+    strong {
+      width: 40%;
+    }
+
+    span {
+      width: 40%;
+    }
+
+    button {
+      width: 20%;
+      margin: 0 5px 0 5px;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      float: right;
+    }
   }
-
-  /* background: ${props => props.theme.color[props.color]};
-  border-radius: ${style("radius")};
-  box-shadow: ${style("shadow.small")};
-  border: none;
-  color: ${props => props.theme.color[`${props.color}Alt`]};
-
-  font-weight: ${style("headerFontWeight")};
-  line-height: ${style("fontSize.normal")};
-  text-decoration: none;*/
 `;
 
 const Ul = ({ ...props }) => <UlStyled {...props}></UlStyled>;

@@ -4,7 +4,7 @@
       "id": 1,
       "name": "AFGHANISTAN",
       "code": "afg",
-      "population": 100
+      "population": 150
     },
     {
       "name": "ALBANIA",
@@ -13,16 +13,16 @@
       "population": 0
     },
     {
+      "id": 3,
       "name": "ALGERIA",
       "code": "alg",
-      "id": 3,
-      "population": 0
+      "population": 149
     },
     {
+      "id": 4,
       "name": "AMERICAN SAMOA",
       "code": "asa",
-      "id": 4,
-      "population": 0
+      "population": 133
     },
     {
       "name": "ANDORRA",
@@ -49,10 +49,10 @@
       "population": 0
     },
     {
+      "id": 9,
       "name": "ARMENIA",
       "code": "arm",
-      "id": 9,
-      "population": 0
+      "population": 160
     },
     {
       "name": "ARUBA",
@@ -91,9 +91,9 @@
       "population": 0
     },
     {
+      "id": 16,
       "name": "BANGLADESH",
       "code": "ban",
-      "id": 16,
       "population": 0
     },
     {

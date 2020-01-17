@@ -5,6 +5,7 @@ import { style } from "../../configs/theme";
 
 const DropStyled = styled.select`
   background: ${props => props.theme.color[props.color]};
+  width: 30%;
   border-radius: ${style("radius")};
   box-shadow: ${style("shadow.small")};
   border: none;
@@ -13,13 +14,16 @@ const DropStyled = styled.select`
   cursor: pointer;
   display: inline-block;
   font-family: ${style("headerFontFamily")};
-  font-size: ${style("fontSize.normal")};
+  font-size: 20px;
   font-weight: ${style("headerFontWeight")};
   line-height: ${style("fontSize.normal")};
   padding: ${style("paddingHalf")};
   position: relative;
   text-decoration: none;
   margin-left: ${style("marginHalf")};
+
+  text-align: center; /* para firefox */
+  text-align-last: center; /* para chrome */
 `;
 
 const DropDown = ({ ...props }) => <DropStyled {...props}></DropStyled>;

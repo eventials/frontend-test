@@ -15,6 +15,7 @@ export const Form = styled.form`
     /* garantimos que ele irá ocupar todo o espaço possível horizontalmente */
     flex: 1;
     height: 55px;
+    width: 40%;
     padding: 0 20px;
     background: #fff;
     margin-left: 10px;
@@ -23,6 +24,16 @@ export const Form = styled.form`
     color: #444;
     /* cantos arredondados */
     border-radius: ${style("radius")};
-    border: ${style("border")};
+  }
+`;
+export const Paginate = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: ${style("width.max")};
+
+  button {
+    border: 0;
+    background: none;
   }
 `;

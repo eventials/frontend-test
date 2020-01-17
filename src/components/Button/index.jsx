@@ -8,6 +8,7 @@ const ButtonStyled = styled.button`
   border-radius: ${style("radius")};
   box-shadow: ${style("shadow.small")};
   border: none;
+  width: 20%;
   color: ${props => props.theme.color[`${props.color}Alt`]};
 
   cursor: pointer;

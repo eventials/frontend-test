@@ -25,6 +25,15 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(ttf|eot|svg|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        include: path.resolve(__dirname, "src"),
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
       }
     ]
   },

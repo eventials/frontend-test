@@ -1,12 +1,9 @@
 import React from "react";
-import Theme from "../components/theme";
-import Layout from "../components/layout";
-import Main from "../pages/Main";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "../routes";
 
 export default () => (
-  <Theme>
-    <Layout>
-      <Main />
-    </Layout>
-  </Theme>
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>
 );
