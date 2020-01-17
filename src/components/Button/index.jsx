@@ -29,7 +29,6 @@ const Button = ({ label, ...props }) => (
 Button.propTypes = {
   color: PropTypes.string,
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   type: PropTypes.string
 };
 

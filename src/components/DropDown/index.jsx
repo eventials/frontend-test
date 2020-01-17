@@ -26,13 +26,12 @@ const DropDown = ({ ...props }) => <DropStyled {...props}></DropStyled>;
 
 DropDown.propTypes = {
   color: PropTypes.string,
-  label: PropTypes.string.isRequired,
   type: PropTypes.string
 };
 
 DropDown.defaultProps = {
   color: "primary",
-  type: "button"
+  type: "select"
 };
 
 export default DropDown;

@@ -16,6 +16,7 @@ export default class Theme extends PureComponent {
 
     injectGlobal`
       @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Oswald:300,400');
+      @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
       
       html,
       body {

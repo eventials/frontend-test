@@ -1,51 +1,55 @@
-
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: "source-map",
 
   entry: [
     // activate HMR for React
-    'react-hot-loader/patch',
-    'whatwg-fetch',
-    './src/index.jsx',
+    "react-hot-loader/patch",
+    "whatwg-fetch",
+    "./src/index.jsx",
+    "@babel/polyfill"
   ],
 
   module: {
     rules: [
       {
         test: /\.js[x]{0,1}$/,
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(__dirname, "src"),
         use: {
-          loader: 'babel-loader',
-        },
+          loader: "babel-loader"
+        }
       },
-    ],
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
   },
 
   optimization: {
     namedModules: true,
-    noEmitOnErrors: true,
+    noEmitOnErrors: true
   },
 
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: '/',
-    filename: 'scripts/[id]-[hash].js',
-    chunkFilename: 'scripts/[id]-[hash].js',
+    path: path.join(__dirname, "dist"),
+    publicPath: "/",
+    filename: "scripts/[id]-[hash].js",
+    chunkFilename: "scripts/[id]-[hash].js"
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html',
-    }),
+      template: "./src/index.html",
+      filename: "./index.html"
+    })
   ],
 
   resolve: {
-    extensions: ['.js', '.json', '.jsx'],
-  },
+    extensions: [".js", ".json", ".jsx"]
+  }
 };
