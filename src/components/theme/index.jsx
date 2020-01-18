@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { injectGlobal, ThemeProvider } from "styled-components";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import defaultTheme from "../../configs/theme";
 
@@ -26,7 +27,9 @@ export default class Theme extends PureComponent {
       }
       
       html {
-        padding: ${theme.padding};
+        padding: 0;
+        /* change padding: ${theme.padding}; */
+        
       }
       
       body {

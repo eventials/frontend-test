@@ -1,17 +1,35 @@
 import React from "react";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+
 import Main from "./pages/Main";
 import SignIn from "./pages/SignIn";
-import { Switch, Route } from "react-router-dom";
-import Theme from "./components/theme";
-import Layout from "./components/layout";
+import SignUp from "./pages/SignUp";
+import Profile from "./pages/Profile";
 
-export default () => (
-  <Theme>
+import Layout from "./components/layout";
+import { isAuthenticated } from "./api/auth";
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+      )
+    }
+  />
+);
+
+const Routes = () => (
+  <BrowserRouter>
     <Switch>
       <Route path="/" exact component={SignIn}></Route>
-      <Layout>
-        <Route path="/main" component={Main}></Route>
-      </Layout>
+      <Route path="/signUp" component={SignUp}></Route>
+      <PrivateRoute path="/main" component={Main} />
+      <PrivateRoute path="/profile" component={Profile} />
     </Switch>
-  </Theme>
+  </BrowserRouter>
 );
+export default Routes;

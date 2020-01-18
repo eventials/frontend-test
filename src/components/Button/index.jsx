@@ -20,7 +20,6 @@ const ButtonStyled = styled.button`
   padding: ${style("paddingHalf")};
   position: relative;
   text-decoration: none;
-  margin-left: ${style("marginHalf")};
 `;
 
 const Button = ({ label, ...props }) => (

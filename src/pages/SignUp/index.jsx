@@ -3,7 +3,6 @@ import { Container, Form, Img } from "./styles";
 import { Link, withRouter } from "react-router-dom";
 
 import api from "../../api/api";
-import { login, getToken, email } from "../../api/auth";
 
 import logo from "../../assets/logo.svg";
 // tost warning
@@ -11,8 +10,9 @@ import { ToastContainer, toast } from "react-toastify";
 
 import Button from "../../components/Button";
 
-class SignIn extends Component {
+class SignUp extends Component {
   state = {
+    valueInputName: "",
     valueInputEmail: "",
     valueInputPassword: ""
   };
@@ -37,36 +37,38 @@ class SignIn extends Component {
       draggable: true
     });
   }
+
   handleSubmit = async () => {
     event.preventDefault();
 
     try {
-      const response = await api.post("/login", {
+      await api.post("/users", {
+        name: this.state.valueInputName,
         email: this.state.valueInputEmail,
         password: this.state.valueInputPassword
       });
-
-      login(response.data.accessToken);
-      email(this.state.valueInputEmail);
-      this.props.history.push("/main");
-      this.notifySuccess("Login efetuado com sucesso!");
+      this.props.history.push("/");
+      this.notifySuccess("Cadastro efetuado com sucesso!");
     } catch (error) {
-      this.notifyError("Falha ao efetuar login!");
+      this.notifyError("Falha ao cadastrar usuário!");
     }
   };
-
-  componentDidMount() {
-    if (getToken()) {
-      this.props.history.push("/main");
-    }
-  }
 
   render() {
     return (
       <Container>
         <Img src={logo} alt="Globe" />
-        <h2>Country Population</h2>
+        <h2>User Registration</h2>
         <Form onSubmit={this.handleSubmit}>
+          <input
+            type="name"
+            placeholder="Nome"
+            value={this.state.valueInputName}
+            onChange={event =>
+              this.setState({ valueInputName: event.target.value })
+            }
+          />
+
           <input
             type="email"
             placeholder="Seu e-mail"
@@ -85,9 +87,8 @@ class SignIn extends Component {
               this.setState({ valueInputPassword: event.target.value })
             }
           />
-          <a href="">Esqueceu sua senha?</a>
-          <Link to="/signUp">Criar conta gratuita</Link>
-          <Button type="submit" label="LOGIN"></Button>
+          <Link to="/">Já tenho uma conta!</Link>
+          <Button type="submit" label="REGISTER"></Button>
         </Form>
 
         <ToastContainer
@@ -108,4 +109,4 @@ class SignIn extends Component {
   }
 }
 
-export default withRouter(SignIn);
+export default withRouter(SignUp);

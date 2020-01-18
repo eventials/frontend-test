@@ -25,7 +25,6 @@ export const Form = styled.form`
   /* utilizaremos para fazer os alinhamentos */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   input {
     /* garantimos que ele irá ocupar todo o espaço possível horizontalmente */
@@ -38,15 +37,12 @@ export const Form = styled.form`
     /* cantos arredondados */
     border-radius: 5px;
   }
+
   a {
     font-weight: bold;
     margin: 0 10px 5px 10px;
     font-family: "Roboto";
     text-decoration: none;
-  }
-
-  button {
-    margin: 10px;
   }
 `;
 

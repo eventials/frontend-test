@@ -88,6 +88,7 @@ export default {
 
   width: {
     min: "320px",
-    max: "1200px"
+    max: "1200px",
+    max_header: "100%"
   }
 };

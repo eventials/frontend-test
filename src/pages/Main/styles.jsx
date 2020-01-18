@@ -6,6 +6,8 @@ export const Form = styled.form`
   margin-top: 20px;
   /* força ocupar todo o espaço horizontal possível */
   width: ${style("width")};
+  /* change padding: ${theme.padding}; */
+   /* change max: "1200px" */
   /* limita o width 100% em 400px */
   max-width: ${style("width.max")};
   min-width: ${style("width.min")};
@@ -24,6 +26,10 @@ export const Form = styled.form`
     color: #444;
     /* cantos arredondados */
     border-radius: ${style("radius")};
+  }
+
+  button {
+    margin-left: ${style("marginHalf")};
   }
 `;
 export const Paginate = styled.div`

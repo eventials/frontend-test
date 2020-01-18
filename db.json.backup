@@ -1236,5 +1236,31 @@
       "id": 206,
       "population": 0
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Daniel Lopes",
+      "email": "daniel@gmail.com",
+      "password": "abc123"
+    },
+    {
+      "id": 2,
+      "name": "João Arthur",
+      "email": "joao@gmail.com",
+      "password": "abc1234"
+    },
+    {
+      "id": 3,
+      "name": "Camila",
+      "email": "camila@gmail.com",
+      "password": "abc12345"
+    },
+    {
+      "id": 4,
+      "name": "Paulo",
+      "email": "paulo@gmail.com",
+      "password": "abc123456"
+    }
   ]
 }

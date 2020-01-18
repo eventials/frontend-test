@@ -4,7 +4,7 @@
       "id": 1,
       "name": "AFGHANISTAN",
       "code": "afg",
-      "population": 150
+      "population": 1500
     },
     {
       "name": "ALBANIA",
@@ -13,16 +13,16 @@
       "population": 0
     },
     {
-      "id": 3,
       "name": "ALGERIA",
       "code": "alg",
-      "population": 149
+      "id": 3,
+      "population": 0
     },
     {
-      "id": 4,
       "name": "AMERICAN SAMOA",
       "code": "asa",
-      "population": 133
+      "id": 4,
+      "population": 0
     },
     {
       "name": "ANDORRA",
@@ -49,10 +49,10 @@
       "population": 0
     },
     {
-      "id": 9,
       "name": "ARMENIA",
       "code": "arm",
-      "population": 160
+      "id": 9,
+      "population": 0
     },
     {
       "name": "ARUBA",
@@ -91,9 +91,9 @@
       "population": 0
     },
     {
-      "id": 16,
       "name": "BANGLADESH",
       "code": "ban",
+      "id": 16,
       "population": 0
     },
     {
@@ -1235,6 +1235,26 @@
       "code": "zim",
       "id": 206,
       "population": 0
+    }
+  ],
+  "users": [
+    {
+      "email": "camila@gmail.com",
+      "password": "$2a$10$D0N8btzenQ2s0CA8f/9/DOd0mRvgKwbK8t7JVW2jALovZHnCd49aC",
+      "name": "Camila",
+      "id": 7
+    },
+    {
+      "email": "daniel@gmail.com",
+      "password": "$2a$10$B9K56RAzlGNYw.Ei9ofRP.ab5CJ6ev6GQJfpoYDMuF66mXPEvGzyy",
+      "name": "Daniel",
+      "id": 8
+    },
+    {
+      "email": "carlos@gmail.com",
+      "password": "$2a$10$MPKLn1df0YbwpPG21FtwQ.7QvrLbsvTWJRQu7m8ioluua2D/cIuRS",
+      "name": "Carlos",
+      "id": 9
     }
   ]
 }

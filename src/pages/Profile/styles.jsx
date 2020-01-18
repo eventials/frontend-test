@@ -1,20 +1,20 @@
 import styled from "styled-components";
-import { style } from "../../configs/theme";
 
 export const Container = styled.div`
-  max-width: 500px;
-  height: 500px;
-  margin: 50px auto;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  box-shadow: ${style("shadow.small")};
-
   h2 {
     font-family: "Roboto";
     margin: 0 10px 0 10px;
     align-self: center;
     color: #a2a5aa;
+  }
+
+  button {
+    height: 50px;
+    padding: 10px;
+    width: 40%;
+    margin-bottom: 10px;
   }
 `;
 
@@ -25,12 +25,12 @@ export const Form = styled.form`
   /* utilizaremos para fazer os alinhamentos */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
+  align-items: center;
   input {
     /* garantimos que ele irá ocupar todo o espaço possível horizontalmente */
     height: 55px;
     margin: 10px;
+    width: 50%;
     padding: 20px;
     background: #fff;
     border: 2px solid #c8cace;
@@ -38,18 +38,14 @@ export const Form = styled.form`
     /* cantos arredondados */
     border-radius: 5px;
   }
-  a {
-    font-weight: bold;
-    margin: 0 10px 5px 10px;
-    font-family: "Roboto";
-    text-decoration: none;
-  }
-
-  button {
-    margin: 10px;
-  }
 `;
 
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+`;
 export const Img = styled.img`
   height: 70px;
   margin: 20px;

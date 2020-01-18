@@ -16,11 +16,13 @@ import api from "../../api/api";
 
 // styles
 import { Form, Paginate } from "./styles";
+import Layout from "../../components/layout";
 
 // components styles
 import Button from "../../components/Button";
 import DropDown from "../../components/DropDown";
 import TableCountry from "../../components/TableCountry";
+import Header from "../../components/Header";
 
 export default class Main extends Component {
   state = {
@@ -68,6 +70,8 @@ export default class Main extends Component {
   };
 
   handlePopulation = async event => {
+    event.preventDefault();
+
     if (this.state.valueInput !== "empty") {
       const { id, name, code, population } = this.state.countries.find(
         element => element.id == this.state.valueDropDown
@@ -88,8 +92,6 @@ export default class Main extends Component {
     } else {
       this.notify("Preencha o campo de população atual!");
     }
-
-    event.preventDefault();
   };
 
   componentDidMount() {
@@ -100,74 +102,74 @@ export default class Main extends Component {
   render() {
     return (
       <>
-        <Form
-          onSubmit={this.handlePopulation}
-          withError={this.state.repositoryError}
-        >
-          <DropDown
-            value={this.state.valueDropDown}
-            onChange={event =>
-              this.setState({ valueDropDown: event.target.value })
-            }
-          >
-            {this.state.countries.map(c => (
-              <option key={c.id} value={c.id}>
-                {c.name}
-              </option>
+        <Header />
+        <Layout>
+          <Form onSubmit={this.handlePopulation}>
+            <DropDown
+              value={this.state.valueDropDown}
+              onChange={event =>
+                this.setState({ valueDropDown: event.target.value })
+              }
+            >
+              {this.state.countries.map(c => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </DropDown>
+
+            <input
+              type="text"
+              placeholder="população atual"
+              value={this.state.valueInput}
+              onChange={event =>
+                this.setState({ valueInput: event.target.value })
+              }
+            />
+            <Button type="submit" label="ADICIONAR" />
+          </Form>
+
+          <TableCountry>
+            {this.state.countriesTable.map(c => (
+              <li key={c.id}>
+                <strong>{c.name}</strong>
+                <span>{c.population}</span>
+                <div>
+                  <button type="button" onClick={() => {}}>
+                    <MdDelete size={18} color="#F46357" />
+                  </button>
+                  <button type="button" onClick={() => {}}>
+                    <MdEdit size={18} color="#F46357" />
+                  </button>
+                </div>
+              </li>
             ))}
-          </DropDown>
+          </TableCountry>
 
-          <input
-            type="text"
-            placeholder="população atual"
-            value=""
-            onChange={event =>
-              this.setState({ valueInput: event.target.value })
-            }
+          <Paginate>
+            <button type="button" onClick={() => {}}>
+              <MdChevronLeft size={36} color="#F46357" />
+            </button>
+            {this.state.pages}
+            <button type="button" onClick={() => {}}>
+              <MdChevronRight size={36} color="#F46357" />
+            </button>
+          </Paginate>
+
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnVisibilityChange
+            draggable
+            pauseOnHover
           />
-          <Button type="submit" label="ADICIONAR" />
-        </Form>
-
-        <TableCountry>
-          {this.state.countriesTable.map(c => (
-            <li key={c.id}>
-              <strong>{c.name}</strong>
-              <span>{c.population}</span>
-              <div>
-                <button type="button" onClick={() => {}}>
-                  <MdDelete size={18} color="#F46357" />
-                </button>
-                <button type="button" onClick={() => {}}>
-                  <MdEdit size={18} color="#F46357" />
-                </button>
-              </div>
-            </li>
-          ))}
-        </TableCountry>
-
-        <Paginate>
-          <button type="button" onClick={() => {}}>
-            <MdChevronLeft size={36} color="#F46357" />
-          </button>
-          {this.state.pages}
-          <button type="button" onClick={() => {}}>
-            <MdChevronRight size={36} color="#F46357" />
-          </button>
-        </Paginate>
-
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnVisibilityChange
-          draggable
-          pauseOnHover
-        />
-        {/* Same as */}
-        <ToastContainer />
+          {/* Same as */}
+          <ToastContainer />
+        </Layout>
       </>
     );
   }

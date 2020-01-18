@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "../routes";
-
+import Theme from "../components/theme";
 export default () => (
   <BrowserRouter>
-    <Routes />
+    <Theme>
+      <Routes />
+    </Theme>
   </BrowserRouter>
 );
