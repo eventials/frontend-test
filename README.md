@@ -23,3 +23,14 @@ Usamos React e Webpack.
 Sinta-se livre para questionar.
 
 > Boa Sorte!
+
+---
+
+## Para testar o projeto:
+
+Rodar o comando: `json-server-auth db.json`
+Depois: `yarn start`
+
+##### json-server
+
+Foi adicionado para podermos simular um backend (users e countries)
