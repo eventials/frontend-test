@@ -28,7 +28,7 @@ Sinta-se livre para questionar.
 
 ## Para testar o projeto:
 
-Rodar o comando: `json-server-auth db.json`
+Rodar o comando: `yarn json-server-auth db.json`
 Depois: `yarn start`
 
 ##### json-server
