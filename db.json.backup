@@ -1,10 +1,10 @@
 {
   "countries": [
     {
+      "id": 1,
       "name": "AFGHANISTAN",
       "code": "afg",
-      "id": 1,
-      "population": 0
+      "population": 1500
     },
     {
       "name": "ALBANIA",
@@ -1239,28 +1239,22 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Daniel Lopes",
-      "email": "daniel@gmail.com",
-      "password": "abc123"
-    },
-    {
-      "id": 2,
-      "name": "João Arthur",
-      "email": "joao@gmail.com",
-      "password": "abc1234"
-    },
-    {
-      "id": 3,
-      "name": "Camila",
       "email": "camila@gmail.com",
-      "password": "abc12345"
+      "password": "$2a$10$D0N8btzenQ2s0CA8f/9/DOd0mRvgKwbK8t7JVW2jALovZHnCd49aC",
+      "name": "Camila",
+      "id": 7
     },
     {
-      "id": 4,
-      "name": "Paulo",
-      "email": "paulo@gmail.com",
-      "password": "abc123456"
+      "email": "daniel@gmail.com",
+      "password": "$2a$10$B9K56RAzlGNYw.Ei9ofRP.ab5CJ6ev6GQJfpoYDMuF66mXPEvGzyy",
+      "name": "Daniel",
+      "id": 8
+    },
+    {
+      "email": "carlos@gmail.com",
+      "password": "$2a$10$MPKLn1df0YbwpPG21FtwQ.7QvrLbsvTWJRQu7m8ioluua2D/cIuRS",
+      "name": "Carlos",
+      "id": 9
     }
   ]
 }

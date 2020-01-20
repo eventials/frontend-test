@@ -1,13 +1,5 @@
 import React, { Component } from "react";
 
-// icons
-import {
-  MdChevronLeft,
-  MdChevronRight,
-  MdDelete,
-  MdEdit
-} from "react-icons/md";
-
 // tost warning
 import { ToastContainer, toast } from "react-toastify";
 
@@ -15,22 +7,22 @@ import { ToastContainer, toast } from "react-toastify";
 import api from "../../api/api";
 
 // styles
-import { Form, Paginate } from "./styles";
+import { Form } from "./styles";
 import Layout from "../../components/layout";
 
-// components styles
+// components
 import Button from "../../components/Button";
 import DropDown from "../../components/DropDown";
-import TableCountry from "../../components/TableCountry";
 import Header from "../../components/Header";
+import Pagination from "../../components/Pagination";
 
-export default class Main extends Component {
+class Main extends Component {
   state = {
-    valueDropDown: 1,
-    valueInput: "empty",
+    valueDropDown: 0,
+    valueInput: 0,
     countries: [],
-    countriesTable: [],
-    pages: ""
+    pagesMax: 0,
+    updateChildren: false
   };
 
   notify(message) {
@@ -44,28 +36,21 @@ export default class Main extends Component {
     });
   }
 
+  updateState() {
+    this.setState({ updateChildren: false });
+  }
+
   loadCountries = async () => {
     try {
       const response = await api.get("/countries");
 
       this.setState({
         countries: response.data,
-        pages: Math.round(response.data.length / 10)
+        pagesMax: Math.round(response.data.length / 10),
+        valueDropDown: response.data[0].id
       });
     } catch (error) {
       this.notify("Falha ao carregar países, atualize a página!");
-    }
-  };
-
-  loadCountriesToTable = async () => {
-    try {
-      const response = await api.get(
-        "/countries?_sort=population&_order=desc&_page=1&_limit=8"
-      );
-
-      this.setState({ countriesTable: response.data });
-    } catch (error) {
-      this.notify("Falha ao carregar tabela, atualize a página!");
     }
   };
 
@@ -80,12 +65,17 @@ export default class Main extends Component {
       try {
         const newPopulation = population + parseFloat(this.state.valueInput);
 
-        await api.put(`/countries/${id}`, {
-          id: this.state.valueDropDown,
-          name,
-          code,
-          population: newPopulation
-        });
+        if (newPopulation > 0) {
+          await api.put(`/countries/${id}`, {
+            id: this.state.valueDropDown,
+            name,
+            code,
+            population: newPopulation
+          });
+          this.setState({ updateChildren: true, valueInput: 0 });
+        } else {
+          this.notify("A população não pode ser menor que zero!");
+        }
       } catch (error) {
         this.notify("População não adicionada!");
       }
@@ -96,7 +86,6 @@ export default class Main extends Component {
 
   componentDidMount() {
     this.loadCountries();
-    this.loadCountriesToTable();
   }
 
   render() {
@@ -129,48 +118,29 @@ export default class Main extends Component {
             <Button type="submit" label="ADICIONAR" />
           </Form>
 
-          <TableCountry>
-            {this.state.countriesTable.map(c => (
-              <li key={c.id}>
-                <strong>{c.name}</strong>
-                <span>{c.population}</span>
-                <div>
-                  <button type="button" onClick={() => {}}>
-                    <MdDelete size={18} color="#F46357" />
-                  </button>
-                  <button type="button" onClick={() => {}}>
-                    <MdEdit size={18} color="#F46357" />
-                  </button>
-                </div>
-              </li>
-            ))}
-          </TableCountry>
-
-          <Paginate>
-            <button type="button" onClick={() => {}}>
-              <MdChevronLeft size={36} color="#F46357" />
-            </button>
-            {this.state.pages}
-            <button type="button" onClick={() => {}}>
-              <MdChevronRight size={36} color="#F46357" />
-            </button>
-          </Paginate>
-
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnVisibilityChange
-            draggable
-            pauseOnHover
+          <Pagination
+            handleClick={this.loadCountries.bind(this)}
+            update={this.state.updateChildren}
+            updateState={this.updateState.bind(this)}
           />
-          {/* Same as */}
-          <ToastContainer />
         </Layout>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable
+          pauseOnHover
+        />
+        {/* Same as */}
+        <ToastContainer />
       </>
     );
   }
 }
+
+export default Main;

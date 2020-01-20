@@ -3,8 +3,9 @@ import { style } from "../../configs/theme";
 
 export const Container = styled.div`
   background: #fff;
-  padding: 0 30px;
   box-shadow: ${style("shadow.small")};
+  min-height: 60px;
+  padding-right: 10px;
 `;
 
 export const Content = styled.div`

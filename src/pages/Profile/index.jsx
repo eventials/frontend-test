@@ -12,21 +12,14 @@ import Layout from "../../components/layout";
 // tost warning
 import { ToastContainer, toast } from "react-toastify";
 
-export default class Main extends Component {
-  state = { valueInputEmail: "", valueInputName: "", valueInputPassword: "" };
+export default class Profile extends Component {
+  state = {
+    valueInputName: "",
+    valueInputEmail: ""
+  };
 
-  notifySuccess(message) {
-    toast.success(message, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true
-    });
-  }
-  notifyError(message) {
-    toast.error(message, {
+  notify() {
+    toast.error("Não foi possível carregar seus dados!", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -36,7 +29,7 @@ export default class Main extends Component {
     });
   }
 
-  handleSubmit = async () => {
+  loadData = async () => {
     try {
       const response = await api.get("/users", {
         params: {
@@ -45,12 +38,14 @@ export default class Main extends Component {
       });
 
       const { name, email } = response.data[0];
-      this.setState({ valueInputEmail: email, valueInputName: name });
-    } catch (error) {}
+      this.setState({ valueInputName: name, valueInputEmail: email });
+    } catch (error) {
+      this.notify();
+    }
   };
 
   componentDidMount() {
-    this.handleSubmit();
+    this.loadData();
   }
 
   render() {
@@ -61,14 +56,12 @@ export default class Main extends Component {
           <Container>
             <Img src={user} alt="Globe" />
             <h2>User Profile </h2>
-            <Form onSubmit={this.handleSubmit}>
+            <Form>
               <input
                 type="name"
                 placeholder="Nome"
                 value={this.state.valueInputName}
-                onChange={event =>
-                  this.setState({ valueInputName: event.target.value })
-                }
+                disabled={true}
               />
 
               <input
@@ -76,23 +69,8 @@ export default class Main extends Component {
                 placeholder="Seu e-mail"
                 autoComplete="email"
                 value={this.state.valueInputEmail}
-                onChange={event =>
-                  this.setState({ valueInputEmail: event.target.value })
-                }
+                disabled={true}
               />
-              <input
-                type="password"
-                placeholder="Sua senha"
-                autoComplete="current-password"
-                value={this.state.valueInputPassword}
-                onChange={event =>
-                  this.setState({ valueInputPassword: event.target.value })
-                }
-              />
-              <Buttons>
-                <Button type="submit" label="SALVAR"></Button>
-                <Button type="submit" label="CANCELAR"></Button>
-              </Buttons>
             </Form>
 
             <ToastContainer

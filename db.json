@@ -1,22 +1,10 @@
 {
   "countries": [
     {
-      "id": 1,
-      "name": "AFGHANISTAN",
-      "code": "afg",
-      "population": 1500
-    },
-    {
-      "name": "ALBANIA",
-      "code": "alb",
-      "id": 2,
-      "population": 0
-    },
-    {
+      "id": 3,
       "name": "ALGERIA",
       "code": "alg",
-      "id": 3,
-      "population": 0
+      "population": 9890
     },
     {
       "name": "AMERICAN SAMOA",
@@ -91,10 +79,10 @@
       "population": 0
     },
     {
+      "id": 16,
       "name": "BANGLADESH",
       "code": "ban",
-      "id": 16,
-      "population": 0
+      "population": 50004
     },
     {
       "name": "BARBADOS",
@@ -121,10 +109,10 @@
       "population": 0
     },
     {
+      "id": 21,
       "name": "BENIN",
       "code": "ben",
-      "id": 21,
-      "population": 0
+      "population": 450
     },
     {
       "name": "BERMUDA",
@@ -358,12 +346,6 @@
       "name": "EQUATORIAL GUINEA",
       "code": "geq",
       "id": 60,
-      "population": 0
-    },
-    {
-      "name": "ERITREA",
-      "code": "eri",
-      "id": 61,
       "population": 0
     },
     {

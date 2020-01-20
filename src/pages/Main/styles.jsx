@@ -27,19 +27,17 @@ export const Form = styled.form`
     /* cantos arredondados */
     border-radius: ${style("radius")};
   }
+  
 
   button {
-    margin-left: ${style("marginHalf")};
+    margin-left: ${style("marginHalf")};   
   }
-`;
-export const Paginate = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  max-width: ${style("width.max")};
 
-  button {
-    border: 0;
-    background: none;
-  }
+  @media screen and (max-width: ${style("width.max")}) {
+    button {
+        /* Estilo modificado do ícone */
+        margin-right: ${style("marginHalf")};
+      }
+    }
+      
 `;

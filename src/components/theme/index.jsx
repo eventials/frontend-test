@@ -19,11 +19,16 @@ export default class Theme extends PureComponent {
       @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Oswald:300,400');
       @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
       
+      
       html,
       body {
+        
         background-color: ${theme.color.background};
         font-size: ${theme.baseFontSize};
         margin: 0;
+        -webkit-font-smoothing: antialiased;       
+        overflow:hidden; 
+        
       }
       
       html {

@@ -5,6 +5,7 @@ import Main from "./pages/Main";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
+import EditCountry from "./pages/EditCountry";
 
 import Layout from "./components/layout";
 import { isAuthenticated } from "./api/auth";
@@ -28,7 +29,9 @@ const Routes = () => (
       <Route path="/" exact component={SignIn}></Route>
       <Route path="/signUp" component={SignUp}></Route>
       <PrivateRoute path="/main" component={Main} />
+      <PrivateRoute path="/main/:page?" component={EditCountry} />
       <PrivateRoute path="/profile" component={Profile} />
+      <PrivateRoute path="/editCountry" component={EditCountry} />
     </Switch>
   </BrowserRouter>
 );
