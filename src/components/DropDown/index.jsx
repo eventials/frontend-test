@@ -21,7 +21,6 @@ const DropStyled = styled.select`
   position: relative;
   text-decoration: none;
   margin-left: ${style("marginHalf")};
-
   text-align: center; /* para firefox */
   text-align-last: center; /* para chrome */
 `;

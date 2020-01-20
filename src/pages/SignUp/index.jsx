@@ -5,7 +5,6 @@ import { Link, withRouter } from "react-router-dom";
 import api from "../../api/api";
 
 import logo from "../../assets/logo.svg";
-// tost warning
 import { ToastContainer, toast } from "react-toastify";
 
 import Button from "../../components/Button";
@@ -17,6 +16,7 @@ class SignUp extends Component {
     valueInputPassword: ""
   };
 
+  // Notification Success
   notifySuccess(message) {
     toast.success(message, {
       position: "top-right",
@@ -27,6 +27,8 @@ class SignUp extends Component {
       draggable: true
     });
   }
+
+  // Notification Error
   notifyError(message) {
     toast.error(message, {
       position: "top-right",
@@ -38,6 +40,7 @@ class SignUp extends Component {
     });
   }
 
+  // after submit
   handleSubmit = async () => {
     event.preventDefault();
 
@@ -91,6 +94,7 @@ class SignUp extends Component {
           <Button type="submit" label="REGISTER"></Button>
         </Form>
 
+        {/* For toastify */}
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -102,7 +106,6 @@ class SignUp extends Component {
           draggable
           pauseOnHover
         />
-        {/* Same as */}
         <ToastContainer />
       </Container>
     );

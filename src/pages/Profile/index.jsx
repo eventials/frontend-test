@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
 import { getEmail } from "../../api/auth";
 import api from "../../api/api";
 import Header from "../../components/Header";
-import Button from "../../components/Button";
 
 import user from "../../assets/user.svg";
 
-import { Container, Form, Img, Buttons } from "./styles";
+import { Container, Form, Img } from "./styles";
 import Layout from "../../components/layout";
-// tost warning
 import { ToastContainer, toast } from "react-toastify";
 
 export default class Profile extends Component {
@@ -17,7 +14,7 @@ export default class Profile extends Component {
     valueInputName: "",
     valueInputEmail: ""
   };
-
+  // Notification
   notify() {
     toast.error("Não foi possível carregar seus dados!", {
       position: "top-right",
@@ -28,7 +25,7 @@ export default class Profile extends Component {
       draggable: true
     });
   }
-
+  // load profile data
   loadData = async () => {
     try {
       const response = await api.get("/users", {

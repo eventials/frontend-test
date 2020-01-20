@@ -10,11 +10,14 @@ class Header extends Component {
   state = {
     name: ""
   };
+
+  // make logout
   handleLogout() {
     logout();
     this.props.history.push("/");
   }
 
+  // load name in the header
   loadName = async () => {
     try {
       const response = await api.get("/users", {
@@ -25,7 +28,9 @@ class Header extends Component {
 
       const { name } = response.data[0];
       this.setState({ name });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   componentDidMount() {

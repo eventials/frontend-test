@@ -6,7 +6,6 @@ import api from "../../api/api";
 import { login, getToken, email } from "../../api/auth";
 
 import logo from "../../assets/logo.svg";
-// tost warning
 import { ToastContainer, toast } from "react-toastify";
 
 import Button from "../../components/Button";
@@ -17,6 +16,7 @@ class SignIn extends Component {
     valueInputPassword: ""
   };
 
+  // Notification Success
   notifySuccess(message) {
     toast.success(message, {
       position: "top-right",
@@ -27,6 +27,8 @@ class SignIn extends Component {
       draggable: true
     });
   }
+
+  // Notification Error
   notifyError(message) {
     toast.error(message, {
       position: "top-right",
@@ -37,6 +39,8 @@ class SignIn extends Component {
       draggable: true
     });
   }
+
+  // after submit
   handleSubmit = async () => {
     event.preventDefault();
 
@@ -90,6 +94,7 @@ class SignIn extends Component {
           <Button type="submit" label="LOGIN"></Button>
         </Form>
 
+        {/* for toastify */}
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -101,7 +106,6 @@ class SignIn extends Component {
           draggable
           pauseOnHover
         />
-        {/* Same as */}
         <ToastContainer />
       </Container>
     );

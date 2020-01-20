@@ -4,19 +4,13 @@
       "id": 3,
       "name": "ALGERIA",
       "code": "alg",
-      "population": 9890
+      "population": 6112190
     },
     {
+      "id": 4,
       "name": "AMERICAN SAMOA",
       "code": "asa",
-      "id": 4,
-      "population": 0
-    },
-    {
-      "name": "ANDORRA",
-      "code": "and",
-      "id": 5,
-      "population": 0
+      "population": 40000
     },
     {
       "name": "ANGOLA",
@@ -1237,6 +1231,42 @@
       "password": "$2a$10$MPKLn1df0YbwpPG21FtwQ.7QvrLbsvTWJRQu7m8ioluua2D/cIuRS",
       "name": "Carlos",
       "id": 9
+    },
+    {
+      "email": "joao@gmail.com",
+      "password": "$2a$10$rX0ENuT8LRaP5l33aMVyuOLu03DRvZjiiYP7lOD4IGSEdmkhzUQWK",
+      "name": "João ",
+      "id": 10
+    },
+    {
+      "email": "paulo@gmail.com",
+      "password": "$2a$10$TuxHwM6LTKTAUXnZvnfjleK4nz9L4Jb2Kg5rZDzRu1Sj16Ebh/m3G",
+      "name": "Paulo Henrique",
+      "id": 11
+    },
+    {
+      "email": "carolina@gmail.com",
+      "password": "$2a$10$AJv/Ibdn7KV6FVtk/jwWKeMfqpq/iawVKd7PgVvkyl.iKZ3jo6aju",
+      "name": "Carolina",
+      "id": 12
+    },
+    {
+      "email": "paulojose@gmail.com",
+      "password": "$2a$10$8/AkSle5g6PFXysF2fwNduBpMvnWrd3tp3f8LfU/ayVYxNYm0/T7G",
+      "name": "Paulo José",
+      "id": 13
+    },
+    {
+      "email": "camilamaia@gmail.com",
+      "password": "$2a$10$PlzF.gYu5bWRNFCkiX1B6uS3Bk4qgB39LxLQzL.tY7pc79z99Tv.C",
+      "name": "Camila Maia",
+      "id": 14
+    },
+    {
+      "email": "ferrazcarolina@gmail.com",
+      "password": "$2a$10$591bBxFo3kUZqp.UNt/Tw.465fFKqDRcBUvNdN2ySpj0cZAhzokSK",
+      "name": "Carolina Ferraz",
+      "id": 15
     }
   ]
 }

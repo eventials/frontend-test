@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
 import api from "../../api/api";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 
-import user from "../../assets/user.svg";
+import logo from "../../assets/logo.svg";
 
 import { Container, Form, Img, Buttons } from "./styles";
 import Layout from "../../components/layout";
-// tost warning
 import { ToastContainer, toast } from "react-toastify";
 
 export default class EditCountry extends Component {
@@ -19,6 +17,7 @@ export default class EditCountry extends Component {
     valueInputPopulation: ""
   };
 
+  // notification success
   notifySuccess(message) {
     toast.success(message, {
       position: "top-right",
@@ -29,6 +28,7 @@ export default class EditCountry extends Component {
       draggable: true
     });
   }
+  // notification error
   notifyError(message) {
     toast.error(message, {
       position: "top-right",
@@ -39,6 +39,8 @@ export default class EditCountry extends Component {
       draggable: true
     });
   }
+
+  // load data for the inputs
   loadData = async () => {
     const { id } = this.props.location.state;
 
@@ -58,6 +60,7 @@ export default class EditCountry extends Component {
     }
   };
 
+  // after submit
   handleSubmit = async event => {
     const { id } = this.props.location.state;
     event.preventDefault();
@@ -94,8 +97,8 @@ export default class EditCountry extends Component {
         <Header />
         <Layout>
           <Container>
-            <Img src={user} alt="Globe" />
-            <h2>User Profile </h2>
+            <Img src={logo} alt="Globe" />
+            <h2>Edit Country </h2>
             <Form onSubmit={this.handleSubmit}>
               <input
                 type="name"
@@ -120,6 +123,7 @@ export default class EditCountry extends Component {
               </Buttons>
             </Form>
 
+            {/* for Toastify*/}
             <ToastContainer
               position="top-right"
               autoClose={5000}
@@ -131,7 +135,6 @@ export default class EditCountry extends Component {
               draggable
               pauseOnHover
             />
-            {/* Same as */}
             <ToastContainer />
           </Container>
         </Layout>

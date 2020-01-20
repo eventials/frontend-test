@@ -26,8 +26,6 @@ export default class Theme extends PureComponent {
         background-color: ${theme.color.background};
         font-size: ${theme.baseFontSize};
         margin: 0;
-        -webkit-font-smoothing: antialiased;       
-        overflow:hidden; 
         
       }
       

@@ -13,4 +13,5 @@ export default styled.div`
   width: 100%;
   max-width: ${style("width.max")};
   margin: auto;
+  height: 100%;
 `;

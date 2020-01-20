@@ -7,8 +7,8 @@ import { confirmAlert } from "react-confirm-alert";
 
 import { Container } from "./styles";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import Main from "../../pages/Main";
-// icons
+import PropTypes from "prop-types";
+
 import {
   MdDelete,
   MdEdit,
@@ -33,7 +33,7 @@ class Pagination extends Component {
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
-
+  // Notification
   notify(message) {
     toast.error(message, {
       position: "top-right",
@@ -45,6 +45,7 @@ class Pagination extends Component {
     });
   }
 
+  // For open modal
   handleModal = async (id, name, title, message) => {
     this.setState({ modalOpen: true });
     confirmAlert({
@@ -64,9 +65,12 @@ class Pagination extends Component {
     });
   };
 
+  // redirect to up EditCountry
   handleUpdate(id) {
     this.props.history.push("/editCountry", { id });
   }
+
+  // delete country
   handleDelete = async id => {
     try {
       await api.delete(`/countries/${id}`);
@@ -78,6 +82,7 @@ class Pagination extends Component {
     }
   };
 
+  // change the activePage state
   handlePageActive = async page => {
     if (page > 0 && page <= 26) {
       try {
@@ -92,6 +97,7 @@ class Pagination extends Component {
     }
   };
 
+  // load data of countries to table (ul li)
   loadCountriesToTable = async () => {
     try {
       const response = await api.get(
@@ -104,6 +110,7 @@ class Pagination extends Component {
     }
   };
 
+  // take the number of countries
   countCountries = async () => {
     try {
       const response = await api.get(`/countries`);
@@ -120,6 +127,7 @@ class Pagination extends Component {
   }
 
   componentDidUpdate() {
+    // verify the state of parent and update the table
     if (this.props.update) {
       this.props.updateState();
       this.loadCountriesToTable();
@@ -172,6 +180,7 @@ class Pagination extends Component {
           </button>
         </Container>
 
+        {/* for toastify */}
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -183,9 +192,14 @@ class Pagination extends Component {
           draggable
           pauseOnHover
         />
-        {/* Same as */}
       </>
     );
   }
 }
+
+Pagination.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  population: PropTypes.number
+};
 export default withRouter(Pagination);

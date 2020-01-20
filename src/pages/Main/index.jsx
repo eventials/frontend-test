@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 
-// tost warning
 import { ToastContainer, toast } from "react-toastify";
-
-// api
+import PropTypes from "prop-types";
 import api from "../../api/api";
 
-// styles
 import { Form } from "./styles";
 import Layout from "../../components/layout";
 
-// components
 import Button from "../../components/Button";
 import DropDown from "../../components/DropDown";
 import Header from "../../components/Header";
@@ -25,6 +21,7 @@ class Main extends Component {
     updateChildren: false
   };
 
+  // Notification
   notify(message) {
     toast.error(message, {
       position: "top-right",
@@ -36,10 +33,12 @@ class Main extends Component {
     });
   }
 
+  // for children change the parent state
   updateState() {
     this.setState({ updateChildren: false });
   }
 
+  // load data of countries
   loadCountries = async () => {
     try {
       const response = await api.get("/countries");
@@ -54,10 +53,11 @@ class Main extends Component {
     }
   };
 
+  // add population in a country
   handlePopulation = async event => {
     event.preventDefault();
 
-    if (this.state.valueInput !== "empty") {
+    if (this.state.valueInput !== "") {
       const { id, name, code, population } = this.state.countries.find(
         element => element.id == this.state.valueDropDown
       );
@@ -125,6 +125,7 @@ class Main extends Component {
           />
         </Layout>
 
+        {/* for toastify */}
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -136,11 +137,17 @@ class Main extends Component {
           draggable
           pauseOnHover
         />
-        {/* Same as */}
+
         <ToastContainer />
       </>
     );
   }
 }
+
+Main.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  population: PropTypes.number
+};
 
 export default Main;

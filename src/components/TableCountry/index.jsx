@@ -47,7 +47,10 @@ const Ul = ({ ...props }) => <UlStyled {...props}></UlStyled>;
 
 Ul.propTypes = {
   color: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  population: PropTypes.number
 };
 
 Ul.defaultProps = {
