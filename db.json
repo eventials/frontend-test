@@ -1267,6 +1267,12 @@
       "password": "$2a$10$591bBxFo3kUZqp.UNt/Tw.465fFKqDRcBUvNdN2ySpj0cZAhzokSK",
       "name": "Carolina Ferraz",
       "id": 15
+    },
+    {
+      "email": "joaopaulo@gmail.com",
+      "password": "$2a$10$pLPn.EpSYQN3JH.AZMp/b.RIZNsGj19TwaznpgI6Ksl6rUJOBKEI.",
+      "name": "João Paulo",
+      "id": 16
     }
   ]
 }
