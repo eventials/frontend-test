@@ -55,7 +55,7 @@ aside form .input-block input {
 aside form button[type=submit] {
     width: 100%;
     border: 0;
-    margin-top: 30px;
+    margin-top: 25px;
     background: #10acdd;
     border-radius: 2px;
     padding: 15px 20px;
@@ -67,7 +67,7 @@ aside form button[type=submit] {
 }
 
 aside form button[type=submit]:hover {
-    background: #606b6e;
+    background: #0c8db4;
 }
 
 aside form label[type=text]:hover {
@@ -76,6 +76,8 @@ aside form label[type=text]:hover {
 
 aside #minhalabel {
     color: #10acdd;
+    /* border-bottom: 1px #0c8db4 solid; */
+    margin-top: 40px;
     width: 85px;
 }
 

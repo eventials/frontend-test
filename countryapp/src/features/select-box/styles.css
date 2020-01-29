@@ -11,6 +11,9 @@ aside form .select-box--container {
     width: 100%;
     margin: 0;
     padding: 0;
+    color: #666;
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
     /* border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -28,16 +31,14 @@ aside form .select-box--items div.selected {
 
 aside form .select-box--items div {
     position: relative;
-    background: #fff;
-    border-bottom: 1px solid #10adcc;
-    border-left: 1px solid #10adcc;
-    border-right: 1px solid #10adcc;
+    background: #C7EFFF;
     padding: 6px;
     padding-left: 20px;
-    /* border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px; */
+}
+
+.select-box--items {
+    overflow: auto;
+    height: 250px;
 }
 
 #selecionador:hover{
@@ -51,7 +52,6 @@ aside form .select-box--selected-item {
 
 
 aside form .select-box--arrow-down {
-    position: relative;
     margin-left: 90%;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;

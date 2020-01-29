@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
 
-import pessoa from './users/pessoa';
-import PessoaItem from './usersForm/PessoaItem';
 import Cadastrar from './usersForm/cadastrar';
+import ShowPeople from './usersForm/ShowPeople';
 
 import './Css/global.css';
 import './Css/App.css';
@@ -14,20 +15,16 @@ function App() {
 
   return (
     <div id="app">
+    <Provider store={store}>
       <aside>
-        <strong>Hello {pessoa.name} | Submit</strong>
+        <strong>Submit</strong>
         <Cadastrar/>
       </aside>
 
       <main>
-        <ul>
-          {pessoa.filter(function (pes) {
-            return pes.country === 'BRAZIL' // returns a new array
-          }).map(function (pes) {  //map the new array to list items
-            return <PessoaItem key={pes.name} people={pes}/> // don't forget unique key for each item
-          })}
-        </ul>
+        <ShowPeople/>
       </main>
+      </Provider>
     </div>
   );
 }

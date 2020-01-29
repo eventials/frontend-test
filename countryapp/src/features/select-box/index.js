@@ -1,63 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';// eslint-disable-next-line
+import { useSelector, useDispatch } from 'react-redux';
+import countries from '../../api/country';
 
 import './styles.css';
 
-export default class SelectBox extends React.Component {
+function SelectBox(){
+    const country = useSelector(state => state.country);
+    const [paises, setPaises] = useState([]);
+    const dispatch = useDispatch();
 
-    state = {
-        ...this.props,
-        items: this.props.items || [],
-        showItems: false,
-        selectedItem: this.props.items && this.props.items[0],
+    const [showItems, setShowItems] = useState('');
+
+    useEffect(() => {
+        setShowItems(false);
+        countries().then(item => {
+          setPaises(item)
+        }).catch(err => (alert("Error: couldn't load countries, press F5 to try again")))
+    }, [])
+
+    async function dropDown(){
+        setShowItems(!showItems);
+
     }
 
-    dropDown = () =>
-    {
-        this.setState(prevState => ({
-            showItems: !prevState.showItems,
-        }))
+    async function selectItem(item){
+        dispatch({ type: 'CHANGE_COUNTRY', pais: item})
+        setShowItems(false);
     }
 
-    selectItem = (item) => this.setState({
-        selectedItem: item,
-        showItems: false
-    })
-
-    render() {
-        return <> 
+    return (
+        <> 
             <label htmlFor="">Select your country</label>
             <div className="select-box--box" >
                 <div className="select-box--container">
                     <div className="select-box--selected-item">
-                        { this.state.selectedItem.name }
+                        { country.name }
                     </div>
-                    <div onClick={this.dropDown}>
+                    <div onClick={dropDown}>
                         {/* <span className={`${this.state.showItems ? 
                             'select-box--arrow-up' : 'select-box--arrow-down'}`} /> */}
                             <span className='select-box--arrow-down'/>
                     </div>
-                    <div style={{display: this.state.showItems ? 'block' : 'none'}} 
+                    <div style={{display: showItems ? 'block' : 'none'}} 
                         className="select-box--items">
                         {
-                            this.state.items.map(item => 
+                            paises.sort((a, b) => (a.population > b.population) ? -1 : 1),
+                            paises.map(item => 
                                 <div 
                                     key={item.code}
-                                    onClick={() => this.selectItem(item)}
-                                    className={this.state.selectedItem === item ? 'selected' : ''}
+                                    onClick={() => selectItem(item)}
+                                    className={country === item ? 'selected' : ''}
                                     id='selecionador'
                                 >
-                                    { item.name + ' (Citizens: 3)'}
+                                    { item.name }
                                 </div>
                             )
                         }
                     </div>
                 </div>
             </div> 
-            <input 
-                type="hidden" 
-                value={this.state.selectedItem.code} 
-                name={this.state.name}
-            />
         </>
-    }
+    );
 }
+
+export default SelectBox;
