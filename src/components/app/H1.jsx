@@ -1,5 +1,4 @@
-
-import styled from 'styled-components';
+import styled from "./node_modules/styled-components";
 
 export default styled.h1`
   font-size: ${props => props.theme.fontSize.h1};
@@ -7,5 +6,5 @@ export default styled.h1`
   font-weight: ${props => props.theme.headerFontWeight};
   line-height: ${props => props.theme.fontSize.h1};
   color: ${props => props.theme.color.headerFont};
-  margin-bottom: ${props => props.theme.marginHalf}
+  margin-bottom: ${props => props.theme.marginHalf};
 `;

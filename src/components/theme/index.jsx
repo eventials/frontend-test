@@ -1,9 +1,8 @@
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import { injectGlobal, ThemeProvider } from "styled-components";
 
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { injectGlobal, ThemeProvider } from 'styled-components';
-
-import defaultTheme from '../../configs/theme';
+import defaultTheme from "../../configs/theme";
 
 /**
  * Wrapper for the ThemeProvider from styled-components
@@ -47,11 +46,7 @@ export default class Theme extends PureComponent {
    */
   render = () => {
     const { children, theme } = this.props;
-    return (
-      <ThemeProvider theme={theme}>
-        {children}
-      </ThemeProvider>
-    );
+    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
   };
 }
 
@@ -61,9 +56,9 @@ Theme.propTypes = {
   /**
    * Theme config
    */
-  theme: PropTypes.object,
+  theme: PropTypes.object
 };
 
 Theme.defaultProps = {
-  theme: defaultTheme,
+  theme: defaultTheme
 };

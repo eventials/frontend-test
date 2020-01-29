@@ -1,15 +1,16 @@
+import React from "react";
 
-import React from 'react';
-import Theme from '../theme';
-import Layout from '../layout';
-import H1 from './H1';
+import Theme from "../theme";
+import Layout from "../layout";
 
-export default () => (
+import Main from "../../pages/Main";
+
+export default () => {
+  return (
     <Theme>
       <Layout>
-        <H1>
-          Boa sorte!
-        </H1>
+        <Main />
       </Layout>
     </Theme>
-);
+  );
+};
