@@ -40,12 +40,13 @@ li.pessoa-item p {
     margin: 10px 0;
 }
 
-li.pessoa-item a {
+#x {
     color: #10adcc;
     font-size: 14px;
     text-decoration: none;
+    cursor: pointer;
 }
 
-li.pessoa-item a:hover {
+#x:hover {
     color: #107b91;
 }

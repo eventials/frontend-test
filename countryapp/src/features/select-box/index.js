@@ -24,16 +24,19 @@ function SelectBox(){
     }
 
     async function selectItem(item){
+        document.getElementById("labelCountry").style.color = '#ACACAC';
         dispatch({ type: 'CHANGE_COUNTRY', pais: item})
         setShowItems(false);
+        document.getElementById("username").focus();
+        document.getElementById("labelName").style.color = '#ACACAC';
     }
 
     return (
         <> 
-            <label htmlFor="">Select your country</label>
+            <label htmlFor="" id="labelCountry">Select your country</label>
             <div className="select-box--box" >
                 <div className="select-box--container">
-                    <div className="select-box--selected-item">
+                    <div className="select-box--selected-item" id="AA">
                         { country.name }
                     </div>
                     <div onClick={dropDown}>
@@ -48,7 +51,7 @@ function SelectBox(){
                             paises.map(item => 
                                 <div 
                                     key={item.code}
-                                    onClick={() => selectItem(item)}
+                                    onClick={() => selectItem(item) }
                                     className={country === item ? 'selected' : ''}
                                     id='selecionador'
                                 >

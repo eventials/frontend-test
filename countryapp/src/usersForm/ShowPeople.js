@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import PessoaItem from '../usersForm/PessoaItem';
-import pessoa from '../users/pessoa';
 
-function ShowPeople({}){
-
+function ShowPeople(){
+    let people = useSelector(state => state.people);
     const country = useSelector(state => state.country);
 
     return (
+        // u1 represents every individual people
         <ul>
-          {pessoa.filter(function (pes) {
-            return pes.country === country.name// returns a new array
+          {people.filter(function (pes) {
+            return pes.country === country.name// returns a new array for the people that are registered in selected country
           }).map(function (pes) {  //map the new array to list items
-            return <PessoaItem key={pes.name} people={pes}/> // don't forget unique key for each item
+            return <PessoaItem key={pes.id} people={pes}/> // unique key for each item
           })}
         </ul>
     );

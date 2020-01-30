@@ -52,7 +52,7 @@ aside form .input-block input {
     border-bottom: 1px solid #eee;
 }
 
-aside form button[type=submit] {
+aside form button[type=button] {
     width: 100%;
     border: 0;
     margin-top: 25px;
@@ -66,7 +66,7 @@ aside form button[type=submit] {
     transition: background 0.5s;
 }
 
-aside form button[type=submit]:hover {
+aside form button[type=button]:hover {
     background: #0c8db4;
 }
 
