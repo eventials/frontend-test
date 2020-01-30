@@ -4,9 +4,9 @@ import SelectBox from '../features/select-box';
 
 function SideScreen() {
     let [name, setName] = useState('');
-    let lastC = '';
     let people = useSelector(state => state.people);
     const country = useSelector(state => state.country);
+    let excountry = useSelector(state => state.excountry);
     const dispatch = useDispatch();
     let flag = false;
     let obj = useState({
@@ -43,19 +43,28 @@ function SideScreen() {
             if(!flag)
                 name = document.getElementById("username").value
 
+            people = people.filter(item => item.id !== id);
+
             obj = {
                 id,
                 name,
                 country: country.name
             };
-            people[id] = obj;
+            people.push(obj);
+            let attPeople = people;
+            dispatch({ type: 'UPDATE_PEOPLE', attPeople});
             flag = false;
+            excountry.population -= 1;
+            country.population += 1;
+            console.log(people,"EDIT")
         }
         setName('');
         document.getElementById("username").value = "";
         document.getElementById("username").focus();
         document.getElementById("labelName").textContent = "*Name";
         document.getElementById("labelCountry").textContent = "Select your country";
+        document.getElementById("editUser").value = '*';
+        dispatch({ type: 'CHANGE_COUNTRY', pais: excountry})
     }
 
     //ADD PEOPLE FUNCTION
@@ -74,6 +83,7 @@ function SideScreen() {
         setName('');
         document.getElementById("username").value = "";
         document.getElementById("username").focus();
+        console.log(people,"ADD")
     }
 
     //FUNCTION FOR CLICKING ON SUBMIT

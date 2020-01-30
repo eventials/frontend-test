@@ -6,6 +6,7 @@ import './styles.css';
 
 function SelectBox(){
     const country = useSelector(state => state.country);
+    let excountry = useSelector(state => state.excountry);
     const [paises, setPaises] = useState([]);
     const dispatch = useDispatch();
 
@@ -55,7 +56,7 @@ function SelectBox(){
                                     className={country === item ? 'selected' : ''}
                                     id='selecionador'
                                 >
-                                    { item.name }
+                                    { item.name + " (Population : " + item.population + ")" }
                                 </div>
                             )
                         }

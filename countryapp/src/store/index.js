@@ -3,7 +3,8 @@ import pessoas from '../users/pessoa';
 
 const INITIAL_STATE = {
     people: pessoas,
-    country: ''
+    country: '',
+    excountry: '',
 }
 
 function reducer(state = INITIAL_STATE, action){
@@ -15,6 +16,8 @@ function reducer(state = INITIAL_STATE, action){
         case 'UPDATE_PEOPLE':
             console.log(action)
             return { ...state, people: action.attPeople };
+        case 'UPDATE_COUNTRY':
+            return { ...state, excountry: action.excountry };
         default:
             return state;
     }
