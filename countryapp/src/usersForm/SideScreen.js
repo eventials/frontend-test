@@ -19,6 +19,10 @@ function SideScreen() {
         document.getElementById("editUser").value = '*';
     }, [])
 
+    async function changePicture(){
+        console.log(document.getElementById("myImage"));
+    }
+
     //FUNCTION TO CHANGE THE USER INFO
     async function editing(e){
         setName(e.target.value)
@@ -109,7 +113,7 @@ function SideScreen() {
             </div>
             <div className="input-block">
                 <label htmlFor='myImage' id="minhalabel">SEND IMAGE (Optional)</label>
-                <input type="file" name="myImage" id='myImage' accept="image/x-png,image/jpeg"/>
+                <input type="file" name="myImage" id='myImage' accept="image/x-png,image/jpeg" onChange={changePicture}/>
             </div>
             
             <button type="button" onClick={handleSubmit}>Submit</button>

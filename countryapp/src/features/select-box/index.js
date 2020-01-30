@@ -16,7 +16,7 @@ function SelectBox(){
         setShowItems(false);
         countries().then(item => {
           setPaises(item)
-        }).catch(err => (alert("Error: couldn't load countries, press F5 to try again")))
+        }).catch(err => (alert("Error: couldn't load countries, press F5 to try again (IF THIS DOESN'T SHOW UP, THE COUNTRIES WERE LOADED)")))
     }, [])
 
     async function dropDown(){
