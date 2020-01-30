@@ -37,15 +37,18 @@ function SelectBox(){
             <label htmlFor="" id="labelCountry">Select your country</label>
             <div className="select-box--box" >
                 <div className="select-box--container">
+                    <span className='select-box--arrow-down' onClick={dropDown}/>
                     <div className="select-box--selected-item" id="AA">
                         { country.name }
+                        
                     </div>
-                    <div onClick={dropDown}>
+                    {/* <div className="select-box--selected-item" onClick={dropDown}> */}
                         {/* <span className={`${this.state.showItems ? 
                             'select-box--arrow-up' : 'select-box--arrow-down'}`} /> */}
-                            <span className='select-box--arrow-down'/>
-                    </div>
-                    <div style={{display: showItems ? 'block' : 'none'}} // ORDER COUNTRIES BY POPULATION
+                            
+                    {/* </div> */}
+                </div>
+                <div style={{display: showItems ? 'block' : 'none'}} // ORDER COUNTRIES BY POPULATION
                         className="select-box--items">
                         {
                             paises.sort((a, b) => (a.population > b.population) ? -1 : 1),
@@ -61,7 +64,6 @@ function SelectBox(){
                             )
                         }
                     </div>
-                </div>
             </div> 
         </>
     );

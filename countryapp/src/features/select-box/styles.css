@@ -6,14 +6,19 @@ aside form .select-box--box {
 }
 
 aside form .select-box--container {
+    flex: 1;
     height: 30px;
+    position: relative;
     border-bottom: 1px solid #10acdd;
+    align-items: flex-end;
     width: 100%;
     margin: 0;
     padding: 0;
     color: #666;
     font-family: Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
+    grid-template-columns: 1fr 1fr;
+    
     /* border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -46,13 +51,21 @@ aside form .select-box--items div {
     background-color: #38caf7;
 }
 
-aside form .select-box--selected-item {
-    padding: 10px 0px 0px 0px;
+#AA{
+    position: relative;
+    top: 9px;
+    margin: 0;
+    padding: 0;
 }
 
 
 aside form .select-box--arrow-down {
-    margin-left: 90%;
+    position: absolute;
+    margin-top: 12px;
+    left: 70%;
+    /* margin-top: 20px; */
+    z-index: 100;
+    margin-left: 18%;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-top: 10px solid #000000;
