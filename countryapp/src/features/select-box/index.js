@@ -44,7 +44,7 @@ function SelectBox(){
                             'select-box--arrow-up' : 'select-box--arrow-down'}`} /> */}
                             <span className='select-box--arrow-down'/>
                     </div>
-                    <div style={{display: showItems ? 'block' : 'none'}} 
+                    <div style={{display: showItems ? 'block' : 'none'}} // ORDER COUNTRIES BY POPULATION
                         className="select-box--items">
                         {
                             paises.sort((a, b) => (a.population > b.population) ? -1 : 1),

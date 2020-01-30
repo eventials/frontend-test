@@ -4,27 +4,27 @@ const pessoas = [
         name: 'Larry',
         country: 'BRAZIL'
     },{ 
-        id: 2,
+        id: 1,
         name: 'Roberto',
         country: 'BRAZIL'
     },{ 
-        id: 3,
+        id: 2,
         name: 'Francis',
         country: 'UNITED STATES OF AMERICA'
     },{ 
-        id: 4,
+        id: 3,
         name: 'Lawrence',
         country: 'UNITED STATES OF AMERICA'
     },{ 
-        id: 5,
+        id: 4,
         name: 'Carlitos Teves',
         country: 'ARGENTINA'
     },{ 
-        id: 6,
+        id: 5,
         name: 'Romano',
         country: 'ARGENTINA'
     },{ 
-        id: 7,
+        id: 6,
         name: 'Alberta Celestina',
         country: 'ARGENTINA'
     },

@@ -4,8 +4,9 @@ import store from './store';
 
 // data
 
-import Cadastrar from './usersForm/cadastrar';
 import ShowPeople from './usersForm/ShowPeople';
+import { useEffect } from 'react';
+import SideScreen from './usersForm/SideScreen';
 
 // style
 
@@ -17,13 +18,17 @@ import './Css/Main.css';
 
 function App() {
 
+  useEffect(() => {
+    document.getElementById("TITLE").textContent = "Submit";
+  }, [])
+
   return (
     <div id="app">
     {/* redux */}
     <Provider store={store}>
       <aside>
-        <strong>Submit</strong>
-        <Cadastrar/>
+        <strong id="TITLE"></strong>
+        <SideScreen/>
       </aside>
 
       <main>
