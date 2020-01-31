@@ -34,16 +34,15 @@ class Login extends Component {
                 password: this.state.password
             },
         ).then( response => {
-            console.log(response);
-            console.log(response.data.accessToken);
+
             localStorage.setItem('token', response.data.accessToken);
-            this.props.history.push('/app');
+            this.props.history.push('/main');
             return;
         }).catch( error => {
             this.setState({
                 loginErrors: "Invalid login !"
             })
-            console.log(error.response);
+        
         });
         event.preventDefault();
     }
