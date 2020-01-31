@@ -1,28 +1,27 @@
 {
   "countries": [
     {
-      
+      "id": 1,
       "name": "AFGHANISTAN",
       "code": "afg",
-      "id": 1,
       "population": 0
     },
     {
+      "id": 2,
       "name": "ALBANIA",
       "code": "alb",
-      "id": 2,
       "population": 0
     },
     {
+      "id": 3,
       "name": "ALGERIA",
       "code": "alg",
-      "id": 3,
       "population": 0
     },
     {
+      "id": 4,
       "name": "AMERICAN SAMOA",
       "code": "asa",
-      "id": 4,
       "population": 0
     },
     {
@@ -224,9 +223,9 @@
       "population": 0
     },
     {
+      "id": 38,
       "name": "CHAD",
       "code": "cha",
-      "id": 38,
       "population": 0
     },
     {

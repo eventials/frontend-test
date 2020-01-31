@@ -3,28 +3,33 @@ import styled from "styled-components";
 export const Container = styled.div`
     display:flex;
     justify-content:center;
+    align-items:center;
     flex-wrap: wrap;
+    height: 100vh;
     h1{
         margin-bottom: 20px;
+        text-align:center;
     }
     .population-register{
         flex: 0 0 100%;
         display: flex;
         justify-content:center;
         .population-form{
-            flex: 0 0 50%;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            flex: 0 0 75%;
             border: 1px solid black;
             background-color:white;
             padding: 50px;
+
             .register-pop-form{
                 margin-top: 30px;
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: center;
+                justify-content: space-between;
                 .input-section{
-                    flex: 0 0 50%;
+                    flex: 0 0 45%;
                     margin-bottom: 10px;
-                    padding: 0px 20px;
                     label{
                         display: block;
                     }
@@ -36,12 +41,11 @@ export const Container = styled.div`
                     }
                 }
                 .submit, 
-                .delete, 
+                .reset, 
                 .change{
                     padding: 5px 15px;
                     border: none;
                     border-radius: 10px;
-                    margin-right: 20px;
                     margin-top:20px;
                     width: 100px;
                 }
@@ -51,7 +55,7 @@ export const Container = styled.div`
                 .change{
                     background-color: lightgreen;
                 }
-                .delete{
+                .reset{
                     background-color: lightpink;
                 }
                 
