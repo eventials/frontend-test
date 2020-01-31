@@ -43,7 +43,8 @@ export const Container = styled.div`
                 .submit, 
                 .reset, 
                 .change{
-                    padding: 5px 15px;
+                    flex: 0 0 30%;
+                    padding: 10px 15px;
                     border: none;
                     border-radius: 10px;
                     margin-top:20px;
@@ -59,6 +60,34 @@ export const Container = styled.div`
                     background-color: lightpink;
                 }
                 
+            }
+        }
+    }
+    @media(max-width: 767px){
+        .population-register{
+            .population-form{
+                flex: 0 0 100%;
+            }
+        }
+    }
+    @media(max-width: 575px){
+        h1{
+            font-size: 3.0rem;
+        }
+        .population-register{
+            .population-form{
+                .register-pop-form{
+                    .input-section{
+                        flex:0 0 100%;
+                    }
+                    .submit, 
+                    .reset, 
+                    .change{
+                        flex: 0 0 100%;
+                        padding: 10px 15px;
+                        
+                    }
+                }
             }
         }
     }

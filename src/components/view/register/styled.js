@@ -15,6 +15,7 @@ export const Container = styled.div`
             height: auto;
         }
         .input-register{
+            border-radius: 10px;
             border: 1px solid black;
             background-color: white;
             flex: 0 0 30%;
@@ -25,11 +26,13 @@ export const Container = styled.div`
                 flex-wrap: wrap;
                 justify-content:center;
                 input{
+                    border-radius: 10px;
                     flex: 0 0 100%;
                     margin-bottom: 20px;
                     padding: 5px 5px;
                 }
                 .button-register{
+                    border-radius: 10px;
                     cursor:pointer;
                     background-color:lightblue;
                     border:none;

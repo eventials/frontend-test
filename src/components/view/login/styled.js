@@ -15,6 +15,7 @@ export const Container = styled.div`
             height: auto;
         }
         .input-login{
+            border-radius: 10px;
             border: 1px solid black;
             background-color: white;
             flex: 0 0 30%;
@@ -28,16 +29,18 @@ export const Container = styled.div`
                     flex: 0 0 100%;
                     margin-bottom: 20px;
                     padding: 5px 5px;
+                    border-radius: 10px;
                 }
                 .button-login{
                     cursor:pointer;
                     background-color:lightblue;
                     border:none;
                     flex: 0 0 45%;
+                    border-radius: 10px;
                 }
                 a{
                     flex: 0 0 45%;
-                    height:26px;
+                    height:30px;
                     display:block;
                     .button-register{
                         
@@ -49,6 +52,7 @@ export const Container = styled.div`
                         text-align:center;
                         color:black;
                         padding:2px;
+                        border-radius: 10px;
                     }
                 }
                 .error-message{
