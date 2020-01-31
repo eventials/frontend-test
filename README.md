@@ -1,4 +1,12 @@
+
+
 # Frontend Developer Test
+
+## Para rodar o sistema
+ 1.Usar o comando "json-server db.json -m ./node_modules/json-server-auth";
+ 2. "npm run start"
+
+ obs: json-server-auth para rodar o banco de dados.
 
 ## Tarefa
 
