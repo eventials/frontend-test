@@ -48,12 +48,19 @@ function SideScreen() {
         {
             if(!flag)
                 name = document.getElementById("username").value
+            
+            let foto;
+
+            for(let x = 0; x < people.length; x++)
+                if(people[x].id === id)
+                    foto = people[x].profilepic;
 
             people = people.filter(item => item.id !== id);
 
             obj = {
                 id,
                 name,
+                profilepic: foto,
                 country: country.name
             };
             people.push(obj);
@@ -62,7 +69,7 @@ function SideScreen() {
             flag = false;
             excountry.population -= 1;
             country.population += 1;
-            console.log(people,"EDIT")
+            // console.log(people,"EDIT")
         }
         setName('');
         document.getElementById("username").value = "";
@@ -78,9 +85,12 @@ function SideScreen() {
         document.getElementById("labelName").textContent = "*Name";
         document.getElementById("labelCountry").textContent = "Select your country";
         country.population += 1; 
+        let maior = 0;
+        for(let x = 0; x < people.length; x++)
+            if(people[x].id > maior)
+                maior = people[x].id;
         obj = {
-            id: people[people.length-1].id + 1,
-            profilepic: picture,
+            id: maior + 1,
             name,
             country: country.name
         };
@@ -89,7 +99,7 @@ function SideScreen() {
         setName('');
         document.getElementById("username").value = "";
         document.getElementById("username").focus();
-        console.log(obj,"ADD",)
+        // console.log(people,"ADD")
     }
 
     //FUNCTION FOR CLICKING ON SUBMIT
