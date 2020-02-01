@@ -1,12 +1,14 @@
 import React, {useState , useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import SelectBox from '../features/select-box';
+import axios from 'axios';
 
 function SideScreen() {
     let [name, setName] = useState('');
     let people = useSelector(state => state.people);
     const country = useSelector(state => state.country);
     let excountry = useSelector(state => state.excountry);
+    let picture;
     const dispatch = useDispatch();
     let flag = false;
     let obj = useState({
@@ -19,8 +21,8 @@ function SideScreen() {
         document.getElementById("editUser").value = '*';
     }, [])
 
-    async function changePicture(){
-        console.log(document.getElementById("myImage"));
+    async function changePicture(event){
+        picture = event.target.files[0];
     }
 
     //FUNCTION TO CHANGE THE USER INFO
@@ -75,10 +77,10 @@ function SideScreen() {
     async function add(){
         document.getElementById("labelName").textContent = "*Name";
         document.getElementById("labelCountry").textContent = "Select your country";
-
         country.population += 1; 
         obj = {
             id: people[people.length-1].id + 1,
+            profilepic: picture,
             name,
             country: country.name
         };
@@ -87,7 +89,7 @@ function SideScreen() {
         setName('');
         document.getElementById("username").value = "";
         document.getElementById("username").focus();
-        console.log(people,"ADD")
+        console.log(obj,"ADD",)
     }
 
     //FUNCTION FOR CLICKING ON SUBMIT

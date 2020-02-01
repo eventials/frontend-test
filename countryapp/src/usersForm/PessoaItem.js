@@ -23,13 +23,12 @@ function PessoaItem({people}) {
       country.population -= 1;
       attPeople = attPeople.filter(item => item.id !== people.id);
       dispatch({ type: 'UPDATE_PEOPLE', attPeople});
-      console.log(attPeople,"DELETE")
     }
   
     return (//LOAD EACH INDIVIDUAL PERSON
         <li key={people.id} className="pessoa-item">
               <header>
-                <img src="https://image.flaticon.com/icons/png/512/17/17004.png" alt="Imagem Avatar"/>
+                <img src={people.profilepic} alt="Imagem Avatar"/>
                 <div className="user-info">
                 <strong>{people.name} | ID: {people.id}</strong>
                   <span>{people.country}</span>
