@@ -15,7 +15,7 @@
     "redux": "^4.0.5",
     "styled-components": "^5.0.0"
 
-## Comando "yarn install" para instalar dependencias (caso seja necessário), para iniciar "yarn start"
+## Comando "yarn install" ou apenas "yarn" para instalar dependencias (caso seja necessário), para iniciar "yarn start"
 
 # Projeto
 - O site fiz em inglês
