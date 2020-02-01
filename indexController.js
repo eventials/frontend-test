@@ -1,4 +1,5 @@
 
+
 class indexController{
     
   constructor(){
@@ -45,7 +46,7 @@ class indexController{
       }
       if((mostra!="Selecione um País")&&(num!="")){
         alert("Número de habitantes adicionado com sucesso!!");
-        document.getElementById('button3').classList.remove("hide");
+        //document.getElementById('button3').classList.remove("hide");
         document.getElementById('habit').value = ""; 
         document.getElementById("seletor").value = "Selecione um País ";
         
@@ -332,7 +333,7 @@ function OrdenaHab() {
               cIndex = this.cellIndex+1;
 
               auxRindex = rIndex;
-              auxCindex = cIndex;
+              //auxCindex = cIndex;
          
           };
           
