@@ -18,8 +18,4 @@ O esqueleto do projeto foi criado para ajudar a iniciar rapidamente, mas sinta-s
 
 Usamos React e Webpack.
 
-## Dúvidas ?
-
-Sinta-se livre para questionar.
-
-> Boa Sorte!
+## Minha versão está dentro da pasta "countryapp"
