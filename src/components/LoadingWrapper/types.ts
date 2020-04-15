@@ -1,6 +1,6 @@
 export interface LoadingWrapperProps {
   loading: boolean;
-  loadError?: string;
+  loadError?: boolean;
   handleRetry?: () => {};
   children: any;
 }

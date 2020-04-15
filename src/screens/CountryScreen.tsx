@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { bindActionCreators } from "redux";
 import { connect, ConnectedProps } from "react-redux";
 import { notification, Button } from "antd";
+import { FormattedMessage, useIntl } from "react-intl";
 import { SmileOutlined, FrownOutlined } from "@ant-design/icons";
 import countryApi from "../api/country";
 import AutoComplete from "../components/AutoComplete";
@@ -22,8 +23,9 @@ const CountryScreen = (props: PropsFromRedux) => {
     selectedCountry,
   } = props;
   const [loading, setLoading] = useState<boolean>(false);
-  const [loadError, setLoadError] = useState<string>("");
+  const [loadError, setLoadError] = useState<boolean>(false);
   const [updateModalVisible, setUpdateModalVisible] = useState<boolean>(false);
+  const intl = useIntl();
 
   useEffect(() => {
     loadCountries();
@@ -32,12 +34,12 @@ const CountryScreen = (props: PropsFromRedux) => {
   const loadCountries = async () => {
     try {
       setLoading(true);
-      setLoadError("");
+      setLoadError(false);
       const response: Array<ICountry> = await countryApi();
       dispatchLoadCountries(response);
       displayNotification("success");
     } catch (err) {
-      setLoadError("Something went wrong...");
+      setLoadError(true);
       displayNotification("error");
     } finally {
       setLoading(false);
@@ -62,13 +64,13 @@ const CountryScreen = (props: PropsFromRedux) => {
       success: {
         key,
         message: "Hey",
-        description: "Select a country to update its name or population",
+        description: intl.formatMessage({ id: "app.loadSuccess" }),
         icon: <SmileOutlined style={{ color: "#108ee9" }} />,
       },
       error: {
         key,
         message: "Ops...",
-        description: "Something went wrong... ",
+        description: intl.formatMessage({ id: "app.loadError" }),
         icon: <FrownOutlined style={{ color: "#FF3344" }} />,
         btn: retryButton,
       },
@@ -97,7 +99,9 @@ const CountryScreen = (props: PropsFromRedux) => {
         handleRetry={loadCountries}
       >
         <Container>
-          <Title>Select a country</Title>
+          <Title>
+            <FormattedMessage id="title.selectCountry" />
+          </Title>
           <AutoComplete
             value={selectedCountry?.name}
             onSelect={(code) => {

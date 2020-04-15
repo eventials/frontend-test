@@ -1,0 +1,25 @@
+{
+  "app.loading": "Loading...",
+  "app.tryAgain": "Try again",
+  "app.loadError": "Something went wrong...",
+  "app.loadSuccess": "Select a country to update its name or population",
+  "app.yes": "Yes",
+  "app.no": "No",
+  "app.save": "Save",
+  "app.cancel": "Cancel",
+  "app.deleteCountry": "Delete country",
+  "app.required": "Required",
+  "app.unknown": "Unknown",
+
+  "title.selectCountry": "Select a country",
+
+  "validation.population.type": "Country population must be a positive number!",
+  "validation.name.required": "Country name is required!",
+
+  "message.delete.success": "The country {countryName} has been deleted",
+  "message.confirm.delete": "Are you sure to delete the country {countryName}?",
+
+  "input.label.code": "Code",
+  "input.label.name": "Name",
+  "input.label.population": "Population"
+}

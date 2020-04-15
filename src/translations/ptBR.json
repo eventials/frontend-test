@@ -1,0 +1,25 @@
+{
+  "app.loading": "Carregando...",
+  "app.tryAgain": "Tentar novamente",
+  "app.loadError": "Algo deu errado...",
+  "app.loadSuccess": "Selecione um país para alterar seu nome ou sua população",
+  "app.yes": "Sim",
+  "app.no": "Não",
+  "app.save": "Salvar",
+  "app.cancel": "Cancelar",
+  "app.deleteCountry": "Deletar país",
+  "app.required": "Obrigatório",
+  "app.unknown": "Desconhecido",
+
+  "title.selectCountry": "Selecione um país",
+
+  "validation.population.type": "A população do país deve ser um número positivo",
+  "validation.name.required": "O nome do país é obrigatório!",
+
+  "message.delete.success": "O país {countryName} foi deletado",
+  "message.confirm.delete": "Tem certeza que deseja excluir o país {countryName}?",
+
+  "input.label.code": "Código",
+  "input.label.name": "Nome",
+  "input.label.population": "População"
+}

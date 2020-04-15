@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { Modal, Popconfirm, Form, message, Button, Input } from "antd";
 import { connect, ConnectedProps } from "react-redux";
 import { bindActionCreators } from "redux";
-import { UpdateModalProps, ConnectedUpdateModalProps } from "./types";
+import { FormattedMessage, useIntl } from "react-intl";
+import { ConnectedUpdateModalProps } from "./types";
 import {
   updateSelectedCountry,
   deleteSelectedCountry,
@@ -20,6 +21,7 @@ const UpdateModal = (props: ConnectedUpdateModalProps<PropsFromRedux>) => {
     deleteSelectedCountry: dispatchDeleteSelectedCountry,
   } = props;
   const [form] = Form.useForm();
+  const intl = useIntl();
 
   useEffect(() => {
     if (visible && selectedCountry) {
@@ -43,7 +45,9 @@ const UpdateModal = (props: ConnectedUpdateModalProps<PropsFromRedux>) => {
       .validateFields()
       .then((values) => {
         if (!isValidPopulation(values.population)) {
-          const error = "Country population must be a positive number!";
+          const error = intl.formatMessage({
+            id: "validation.population.type",
+          });
           message.error(error);
           form.setFields([
             {
@@ -59,12 +63,21 @@ const UpdateModal = (props: ConnectedUpdateModalProps<PropsFromRedux>) => {
         modalDismiss();
       })
       .catch(() => {
-        message.error("Country name is required!");
+        message.error(intl.formatMessage({ id: "validation.name.required" }));
       });
   };
 
   const onDelete = () => {
-    message.info(`The country ${selectedCountry?.name} has been deleted`);
+    message.info(
+      intl.formatMessage(
+        {
+          id: "message.delete.success",
+        },
+        {
+          countryName: selectedCountry.name,
+        }
+      )
+    );
     dispatchDeleteSelectedCountry();
     modalDismiss();
   };
@@ -77,39 +90,53 @@ const UpdateModal = (props: ConnectedUpdateModalProps<PropsFromRedux>) => {
       footer={[
         <Popconfirm
           key="popconfirm"
-          title="Are you sure to delete this country?"
+          title={intl.formatMessage(
+            { id: "message.confirm.delete" },
+            { countryName: selectedCountry?.name }
+          )}
           onConfirm={onDelete}
           onCancel={() => {}}
-          okText="Yes"
-          cancelText="No"
+          okText={intl.formatMessage({ id: "app.yes" })}
+          cancelText={intl.formatMessage({ id: "app.no" })}
         >
           <Button key="delete" type="primary" danger>
-            Delete country
+            <FormattedMessage id="app.deleteCountry" />
           </Button>
         </Popconfirm>,
 
         <Button key="cancel" onClick={modalDismiss}>
-          Cancel
+          <FormattedMessage id="app.cancel" />
         </Button>,
         <Button key="submit" type="primary" onClick={onSave}>
-          Save
+          <FormattedMessage id="app.save" />
         </Button>,
       ]}
     >
       <Form form={form} layout="vertical">
-        <Item label="Code" name="code">
+        <Item
+          label={intl.formatMessage({ id: "input.label.code" })}
+          name="code"
+        >
           <Input disabled size="large" />
         </Item>
 
         <Item
-          label="Name"
+          label={intl.formatMessage({ id: "input.label.name" })}
           name="name"
-          rules={[{ required: true, message: "Required" }]}
+          rules={[
+            {
+              required: true,
+              message: intl.formatMessage({ id: "app.required" }),
+            },
+          ]}
         >
           <Input size="large" />
         </Item>
 
-        <Item label="Population" name="population">
+        <Item
+          label={intl.formatMessage({ id: "input.label.population" })}
+          name="population"
+        >
           <Input size="large" autoFocus />
         </Item>
       </Form>

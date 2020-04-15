@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FormattedMessage } from "react-intl";
 import { Spin } from "antd";
 import { WarningOutlined } from "@ant-design/icons";
 
@@ -8,7 +9,9 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin-top: 100px;
   border-radius: 5px;
+  min-width: 250px;
   background: ${(props: { isLoading?: boolean }) =>
     props.isLoading
       ? "transparent"
@@ -26,9 +29,12 @@ export const WarningIcon = styled(WarningOutlined)`
 
 export const ActivityIndicator = styled(Spin).attrs(() => ({
   size: "large",
-  tip: "Loading...",
 }))``;
 
 export const ErrorText = styled.p`
+  color: white;
+`;
+
+export const FormattedMessageStyled = styled(FormattedMessage)`
   color: white;
 `;

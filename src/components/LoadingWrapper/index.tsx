@@ -1,6 +1,12 @@
 import React from "react";
 import { Button } from "antd";
-import { Container, WarningIcon, ActivityIndicator, ErrorText } from "./styles";
+import {
+  Container,
+  WarningIcon,
+  ActivityIndicator,
+  ErrorText,
+  FormattedMessageStyled,
+} from "./styles";
 import { LoadingWrapperProps } from "./types";
 
 const LoadingWrapper = ({
@@ -13,6 +19,7 @@ const LoadingWrapper = ({
     return (
       <Container isLoading>
         <ActivityIndicator />
+        <FormattedMessageStyled id="app.loading" />
       </Container>
     );
   }
@@ -21,10 +28,12 @@ const LoadingWrapper = ({
     return (
       <Container>
         <WarningIcon />
-        <ErrorText>{loadError}</ErrorText>
+        <ErrorText>
+          <FormattedMessageStyled id="app.loadError" />
+        </ErrorText>
         {handleRetry && (
           <Button type="primary" onClick={handleRetry}>
-            Try again!
+            <FormattedMessageStyled id="app.tryAgain" />
           </Button>
         )}
       </Container>
