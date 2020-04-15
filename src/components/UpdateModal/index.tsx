@@ -3,12 +3,13 @@ import { Modal, Popconfirm, Form, message, Button, Input } from "antd";
 import { connect, ConnectedProps } from "react-redux";
 import { bindActionCreators } from "redux";
 import { FormattedMessage, useIntl } from "react-intl";
-import { ConnectedUpdateModalProps } from "./types";
 import {
   updateSelectedCountry,
   deleteSelectedCountry,
 } from "../../actions/country";
 import { ICountry } from "../../configs/country";
+import Persist from "../../helpers/persist";
+import { ConnectedUpdateModalProps } from "./types";
 
 const { Item } = Form;
 
@@ -59,7 +60,13 @@ const UpdateModal = (props: ConnectedUpdateModalProps<PropsFromRedux>) => {
           return;
         }
         dispatchUpdateSelectedCountry(values as ICountry);
-        message.success(`The country ${values.name} has been updated`);
+        message.success(
+          intl.formatMessage(
+            { id: "message.save.success" },
+            { countryName: values.name }
+          )
+        );
+        Persist.insert(values as ICountry);
         modalDismiss();
       })
       .catch(() => {

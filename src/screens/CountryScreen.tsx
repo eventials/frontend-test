@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { bindActionCreators } from "redux";
 import { connect, ConnectedProps } from "react-redux";
-import { notification, Button } from "antd";
+import { notification, Button, Modal } from "antd";
 import { FormattedMessage, useIntl } from "react-intl";
-import { SmileOutlined, FrownOutlined } from "@ant-design/icons";
+import {
+  SmileOutlined,
+  FrownOutlined,
+  ExclamationCircleOutlined,
+} from "@ant-design/icons";
 import countryApi from "../api/country";
 import AutoComplete from "../components/AutoComplete";
 import LoadingWrapper from "../components/LoadingWrapper";
@@ -12,8 +16,10 @@ import { ICountry } from "../configs/country";
 import { loadCountries, selectCountry } from "../actions/country";
 import UpdateModal from "../components/UpdateModal";
 import PopulationOption from "../components/PopulationOption";
+import Persist from "../helpers/persist";
 
 const { Option } = AutoComplete;
+const { confirm } = Modal;
 
 const CountryScreen = (props: PropsFromRedux) => {
   const {
@@ -38,11 +44,43 @@ const CountryScreen = (props: PropsFromRedux) => {
       const response: Array<ICountry> = await countryApi();
       dispatchLoadCountries(response);
       displayNotification("success");
+      verifyStorage(response);
     } catch (err) {
       setLoadError(true);
       displayNotification("error");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadStoredCountries = (loadedCountries: Array<ICountry>) => {
+    const storedCountries = Persist.load();
+    const storedCountriesCode = storedCountries.map(
+      (country: ICountry) => country.code
+    );
+
+    const filteredCountries = loadedCountries.filter(
+      (country: ICountry) => !storedCountriesCode.includes(country.code)
+    );
+    const mergedCountries = [...filteredCountries, ...storedCountries];
+    dispatchLoadCountries(mergedCountries);
+  };
+
+  const verifyStorage = (loadedCountries: Array<ICountry>) => {
+    if (Persist.hasItems()) {
+      confirm({
+        title: intl.formatMessage({ id: "modal.loadStorage.title" }),
+        content: intl.formatMessage({ id: "modal.loadStorage.description" }),
+        icon: <ExclamationCircleOutlined />,
+        okText: intl.formatMessage({ id: "app.yes" }),
+        cancelText: intl.formatMessage({ id: "app.no" }),
+        onOk() {
+          loadStoredCountries(loadedCountries);
+        },
+        onCancel() {
+          Persist.clear();
+        },
+      });
     }
   };
 
@@ -78,7 +116,7 @@ const CountryScreen = (props: PropsFromRedux) => {
     notification.open({
       ...configs[type],
       placement: "bottomRight",
-      duration: 6,
+      duration: 4,
     });
   };
 

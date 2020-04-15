@@ -17,7 +17,11 @@
   "validation.name.required": "O nome do país é obrigatório!",
 
   "message.delete.success": "O país {countryName} foi deletado",
+  "message.save.success": "O país {countryName} foi atualizado",
   "message.confirm.delete": "Tem certeza que deseja excluir o país {countryName}?",
+
+  "modal.loadStorage.title": "Carregar dados salvos...",
+  "modal.loadStorage.description": "Deseja carregar os países alterados anteriormente? Se optar por não carregar, eles serão apagados da memória!",
 
   "input.label.code": "Código",
   "input.label.name": "Nome",

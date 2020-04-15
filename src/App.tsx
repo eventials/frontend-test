@@ -1,9 +1,9 @@
 import React from "react";
 import { IntlProvider } from "react-intl";
+import { connect, ConnectedProps } from "react-redux";
 import "antd/dist/antd.css";
 import Layout from "./components/Layout";
 import CountryScreen from "./screens/CountryScreen";
-import { connect, ConnectedProps } from "react-redux";
 import en_US from "./translations/enUS.json";
 import pt_BR from "./translations/ptBR.json";
 

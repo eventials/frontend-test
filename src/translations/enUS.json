@@ -17,7 +17,11 @@
   "validation.name.required": "Country name is required!",
 
   "message.delete.success": "The country {countryName} has been deleted",
+  "message.save.success": "The country {countryName} has been updated",
   "message.confirm.delete": "Are you sure to delete the country {countryName}?",
+
+  "modal.loadStorage.title": "Load stored data...",
+  "modal.loadStorage.description": "Do you want to load previously changed countries? If you choose not to load, they will be deleted from memory!",
 
   "input.label.code": "Code",
   "input.label.name": "Name",
