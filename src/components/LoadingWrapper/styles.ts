@@ -8,11 +8,15 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(
+  border-radius: 5px;
+  background: ${(props: { isLoading?: boolean }) =>
+    props.isLoading
+      ? "transparent"
+      : `linear-gradient(
     20deg,
     rgba(0, 123, 21, 0.5),
     rgba(0, 21, 123, 0.5)
-  );
+  )`};
 `;
 
 export const WarningIcon = styled(WarningOutlined)`

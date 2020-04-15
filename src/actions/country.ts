@@ -26,6 +26,6 @@ export const updateSelectedCountry = (country: ICountry) => ({
   },
 });
 
-export const deleteSelectedCountry = (country: ICountry) => ({
+export const deleteSelectedCountry = () => ({
   type: DELETE_SELECTED_COUNTRY,
 });

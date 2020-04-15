@@ -11,7 +11,7 @@ const LoadingWrapper = ({
 }: LoadingWrapperProps) => {
   if (loading) {
     return (
-      <Container>
+      <Container isLoading>
         <ActivityIndicator />
       </Container>
     );
