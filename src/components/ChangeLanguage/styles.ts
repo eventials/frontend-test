@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   position: absolute;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
+  padding: 10px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
 `;
 
 export const Image = styled.img`
