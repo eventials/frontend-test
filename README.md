@@ -16,7 +16,7 @@ A aplicação inicializará na porta 3000. [http://localhost:3000]
 
 ## Testando o projeto 
 
-Na tela de login, acesse com as seguintes credenciais: 
+Na tela de login, acesse com a seguinte credencial: 
 
 ### `email: teste.frontend@eventials.com.br`
 ### `senha: 123456789`
