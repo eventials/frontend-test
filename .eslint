@@ -8,12 +8,12 @@
     "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true,
+      "jsx": false,
       "modules": true
     }
   },
   "ecmaFeatures": {
-    "jsx": true,
+    "jsx": false,
     "modules": true
   },
   "rules": {
