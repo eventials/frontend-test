@@ -11,8 +11,9 @@ Criar uma página que permita o usuário selecionar um pais de uma lista e regis
 5. Permitir atualização de informação.
 6. Permitir deletar informação.
 7. Estilizar.
-8. Quando finalizar, crie um pull request.
+8. Quando finalizar, crie um pull request no seu github.
 9. Adicionar autenticação (Opcional)
+10. Não faça pull-request para esse projeto
 
 O esqueleto do projeto foi criado para ajudar a iniciar rapidamente, mas sinta-se livre para iniciar do zero se preferir.
 
